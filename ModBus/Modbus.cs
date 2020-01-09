@@ -196,9 +196,6 @@ namespace AD_SensorModbusTCP_NetFramework
     public class ModbusRTU_SerialPort : Modbus
     {
         SerialPort serialPort;
-        int parity;//校验位
-        int dataBits = 8;//数据位
-        int stopBits = 1;//停止位
         string portName;//串口名COM X
         int baudRate;//波特率
         public ModbusRTU_SerialPort()
