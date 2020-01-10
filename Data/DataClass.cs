@@ -8,6 +8,15 @@ using System.Windows.Forms;
 
 namespace AD_SensorModbusTCP_NetFramework
 {
+    public struct SSensor
+    {
+        public int sensorId;
+        public string sensorName;
+        public int startNo;
+        public int quantity;
+        public int length;
+        public int enable;
+    }
     public static class DataClass
     {
         #region
@@ -17,8 +26,8 @@ namespace AD_SensorModbusTCP_NetFramework
             MessageBox.Show(msg);
 #else
             MessageBox.Show(msg);
-            string path = "D:" + "\\" + "SM9003A";
-            string name = path + "\\" + "SM9003ALog.txt";
+            string path = "D:" + "\\" + "SM9001A";
+            string name = path + "\\" + "SM9001ALog.txt";
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
@@ -61,7 +70,8 @@ namespace AD_SensorModbusTCP_NetFramework
             }
             return IsInuse;
         }
-#endregion
+        #endregion
+        public static int userLevel = 1;
 
     }
 }

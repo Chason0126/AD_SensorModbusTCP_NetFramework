@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblCompany = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -84,7 +85,7 @@
             this.cbxUser.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cbxUser.FormattingEnabled = true;
             this.cbxUser.Items.AddRange(new object[] {
-            "用户",
+            "普通用户",
             "系统操作员",
             "系统管理员"});
             this.cbxUser.Location = new System.Drawing.Point(343, 217);
@@ -100,6 +101,7 @@
             this.tbxPwd.PasswordChar = '*';
             this.tbxPwd.Size = new System.Drawing.Size(164, 30);
             this.tbxPwd.TabIndex = 0;
+            this.tbxPwd.Text = "adminSM9001";
             this.tbxPwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnQuit
@@ -149,6 +151,7 @@
             this.Controls.Add(this.lblCompany);
             this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLogin";

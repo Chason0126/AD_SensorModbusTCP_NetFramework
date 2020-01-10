@@ -73,18 +73,25 @@ namespace AD_SensorModbusTCP_NetFramework
                         }
                     }
                 }
-               
-                
-               
-                //if (!IsTabExit("prtname"))
-                //{
-                //    worker.ReportProgress(30, "创建数据表prtname");
-                //    if (!Create_Table_prtName())
-                //    {
-                //        throw new Exception("创建数据表prtName失败");
-                //    }
-                //}
 
+                worker.ReportProgress(30, "创建数据表sensor");
+                if (!create_Table.IsTable_Exit("sensor"))
+                {
+                    if(!create_Table.CreateTable("sensor", "create table sensor(sensorId smallint,sensorName varchar(20),startNo smallint,quantity smallint,length smallint ,enable tinyint(1),primary key(sensorId))"))
+                    {
+                        throw new Exception("创建数据表sensor失败");
+                    }
+                    else
+                    {
+                        for(int i = 1; i <= 255; i++)
+                        {
+                            if (!sqlInsert.Insert("insert into sensor(sensorId,sensorName,startNo,quantity,length,enable) values ('" + i + "','探测器" + i + "','1','60','5',0)"))
+                            {
+                                throw new Exception("插入数据表sensor失败");
+                            }
+                        }
+                    }
+                }
                 //if (!IsTabExit("device"))
                 //{
                 //    worker.ReportProgress(50, "创建数据表device");

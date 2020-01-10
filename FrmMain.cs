@@ -24,6 +24,18 @@ namespace AD_SensorModbusTCP_NetFramework
             try
             {
                 lblTime.Text = DateTime.Now.ToString();
+                switch (DataClass.userLevel)
+                {
+                    case 1:
+                        lblWelcome.Text = "欢迎！普通用户";
+                        break;
+                    case 2:
+                        lblWelcome.Text = "你好！系统操作员";
+                        break;
+                    case 3:
+                        lblWelcome.Text = "您好！系统管理员";
+                        break;
+                }
             }
             catch (Exception ex)
             {
@@ -36,6 +48,35 @@ namespace AD_SensorModbusTCP_NetFramework
             UCSysConfig uCSysConfig = new UCSysConfig();
             pnlMain.Controls.Clear();
             pnlMain.Controls.Add(uCSysConfig);
+        }
+
+        private void btnMin_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnQuit_Click(object sender, EventArgs e)
+        {
+            if (DataClass.userLevel == 1)
+            {
+                FrmCheckPwd frmCheckPwd = new FrmCheckPwd();
+                if (frmCheckPwd.ShowDialog() == DialogResult.OK)
+                {
+
+                }
+                else
+                {
+                    return;
+                }
+            }
+            this.Close();
+            Environment.Exit(0);
+        }
+
+        private void btnSwitchUser_Click(object sender, EventArgs e)
+        {
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.ShowDialog();
         }
     }
 }

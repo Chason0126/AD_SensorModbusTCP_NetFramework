@@ -74,6 +74,13 @@
     <Compile Include="FrmAuthorize.Designer.cs">
       <DependentUpon>FrmAuthorize.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCheckPwd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCheckPwd.designer.cs">
+      <DependentUpon>FrmCheckPwd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQLUpdate.cs" />
     <Compile Include="SQL\SQLInit\Create_Init.cs" />
     <Compile Include="SQL\SQLInit\Create_Table.cs" />
     <Compile Include="Data\DataClass.cs" />
@@ -124,7 +131,12 @@
     <Compile Include="UCControls\UCSysConfig.Designer.cs">
       <DependentUpon>UCSysConfig.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FrmAuthorize.resx" />
+    <EmbeddedResource Include="FrmAuthorize.resx">
+      <DependentUpon>FrmAuthorize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCheckPwd.resx">
+      <DependentUpon>FrmCheckPwd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmInitDB.resx">
       <DependentUpon>FrmInitDB.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,6 +154,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UCControls\UCModBusRTU.resx">
       <DependentUpon>UCModBusRTU.cs</DependentUpon>
@@ -168,6 +181,33 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ModBus\RTU\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\userAdmin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\userNormal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\userOperator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\authorize.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\db.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\switchUser.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -87,5 +87,9 @@ namespace AD_SensorModbusTCP_NetFramework
 
         }
 
+        private void FrmInitDB_MouseDown(object sender, MouseEventArgs e)
+        {
+            Frm_Move();
+        }
     }
 }

@@ -29,9 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.pnlHeader = new System.Windows.Forms.Panel();
-            this.btnSignOut = new System.Windows.Forms.Button();
-            this.btnLogin = new System.Windows.Forms.Button();
+            this.pnlFrmState = new System.Windows.Forms.Panel();
+            this.btnSwitchUser = new System.Windows.Forms.Button();
+            this.btnMin = new System.Windows.Forms.Button();
+            this.btnQuit = new System.Windows.Forms.Button();
+            this.lblWelcome = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblProjName = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
@@ -45,6 +49,7 @@
             this.spcMain = new System.Windows.Forms.SplitContainer();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlHeader.SuspendLayout();
+            this.pnlFrmState.SuspendLayout();
             this.tlpButtom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcMain)).BeginInit();
             this.spcMain.Panel1.SuspendLayout();
@@ -54,8 +59,8 @@
             // pnlHeader
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(116)))), ((int)(((byte)(170)))));
-            this.pnlHeader.Controls.Add(this.btnSignOut);
-            this.pnlHeader.Controls.Add(this.btnLogin);
+            this.pnlHeader.Controls.Add(this.pnlFrmState);
+            this.pnlHeader.Controls.Add(this.lblWelcome);
             this.pnlHeader.Controls.Add(this.lblTime);
             this.pnlHeader.Controls.Add(this.lblProjName);
             this.pnlHeader.Controls.Add(this.lblName);
@@ -66,43 +71,84 @@
             this.pnlHeader.Size = new System.Drawing.Size(1920, 80);
             this.pnlHeader.TabIndex = 1;
             // 
-            // btnSignOut
+            // pnlFrmState
             // 
-            this.btnSignOut.FlatAppearance.BorderColor = System.Drawing.Color.LightCyan;
-            this.btnSignOut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
-            this.btnSignOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnSignOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSignOut.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSignOut.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnSignOut.Location = new System.Drawing.Point(1828, 28);
-            this.btnSignOut.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSignOut.Name = "btnSignOut";
-            this.btnSignOut.Size = new System.Drawing.Size(80, 30);
-            this.btnSignOut.TabIndex = 5;
-            this.btnSignOut.Text = "退出";
-            this.btnSignOut.UseVisualStyleBackColor = true;
+            this.pnlFrmState.Controls.Add(this.btnSwitchUser);
+            this.pnlFrmState.Controls.Add(this.btnMin);
+            this.pnlFrmState.Controls.Add(this.btnQuit);
+            this.pnlFrmState.Location = new System.Drawing.Point(1767, 2);
+            this.pnlFrmState.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlFrmState.Name = "pnlFrmState";
+            this.pnlFrmState.Size = new System.Drawing.Size(150, 50);
+            this.pnlFrmState.TabIndex = 0;
             // 
-            // btnLogin
+            // btnSwitchUser
             // 
-            this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.LightCyan;
-            this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
-            this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnLogin.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnLogin.Location = new System.Drawing.Point(1714, 28);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(0);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(80, 30);
-            this.btnLogin.TabIndex = 4;
-            this.btnLogin.Text = "登录";
-            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnSwitchUser.BackgroundImage = global::AD_SensorModbusTCP_NetFramework.Properties.Resources.switchUser;
+            this.btnSwitchUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSwitchUser.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSwitchUser.FlatAppearance.BorderSize = 0;
+            this.btnSwitchUser.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnSwitchUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnSwitchUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSwitchUser.Location = new System.Drawing.Point(0, 0);
+            this.btnSwitchUser.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSwitchUser.Name = "btnSwitchUser";
+            this.btnSwitchUser.Size = new System.Drawing.Size(50, 50);
+            this.btnSwitchUser.TabIndex = 2;
+            this.btnSwitchUser.UseVisualStyleBackColor = true;
+            this.btnSwitchUser.Click += new System.EventHandler(this.btnSwitchUser_Click);
+            // 
+            // btnMin
+            // 
+            this.btnMin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMin.BackgroundImage")));
+            this.btnMin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMin.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMin.FlatAppearance.BorderSize = 0;
+            this.btnMin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray;
+            this.btnMin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.btnMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMin.Location = new System.Drawing.Point(50, 0);
+            this.btnMin.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMin.Name = "btnMin";
+            this.btnMin.Size = new System.Drawing.Size(50, 50);
+            this.btnMin.TabIndex = 1;
+            this.btnMin.UseVisualStyleBackColor = true;
+            this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
+            // 
+            // btnQuit
+            // 
+            this.btnQuit.BackgroundImage = global::AD_SensorModbusTCP_NetFramework.Properties.Resources.close;
+            this.btnQuit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnQuit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnQuit.FlatAppearance.BorderSize = 0;
+            this.btnQuit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btnQuit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuit.Location = new System.Drawing.Point(100, 0);
+            this.btnQuit.Margin = new System.Windows.Forms.Padding(0);
+            this.btnQuit.Name = "btnQuit";
+            this.btnQuit.Size = new System.Drawing.Size(50, 50);
+            this.btnQuit.TabIndex = 0;
+            this.btnQuit.UseVisualStyleBackColor = true;
+            this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
+            // 
+            // lblWelcome
+            // 
+            this.lblWelcome.AutoSize = true;
+            this.lblWelcome.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblWelcome.Location = new System.Drawing.Point(1590, 24);
+            this.lblWelcome.Margin = new System.Windows.Forms.Padding(0);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(127, 16);
+            this.lblWelcome.TabIndex = 6;
+            this.lblWelcome.Text = "欢迎！普通用户";
             // 
             // lblTime
             // 
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("黑体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblTime.Location = new System.Drawing.Point(1381, 31);
+            this.lblTime.Location = new System.Drawing.Point(1373, 24);
             this.lblTime.Margin = new System.Windows.Forms.Padding(0);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(131, 21);
@@ -271,6 +317,7 @@
             this.Text = "FrmMain";
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
+            this.pnlFrmState.ResumeLayout(false);
             this.tlpButtom.ResumeLayout(false);
             this.spcMain.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spcMain)).EndInit();
@@ -282,8 +329,6 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlHeader;
-        private System.Windows.Forms.Button btnSignOut;
-        private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Label lblProjName;
         private System.Windows.Forms.Label lblName;
@@ -296,5 +341,10 @@
         private System.Windows.Forms.Button btnFireData;
         private System.Windows.Forms.SplitContainer spcMain;
         private System.Windows.Forms.Panel pnlMain;
+        private System.Windows.Forms.Label lblWelcome;
+        private System.Windows.Forms.Panel pnlFrmState;
+        private System.Windows.Forms.Button btnMin;
+        private System.Windows.Forms.Button btnQuit;
+        private System.Windows.Forms.Button btnSwitchUser;
     }
 }

@@ -28,6 +28,7 @@ namespace AD_SensorModbusTCP_NetFramework
         public FrmLogin()
         {
             InitializeComponent();
+            cbxUser.SelectedIndex = 0;
         }
 
         private void FrmLogin_MouseDown(object sender, MouseEventArgs e)
@@ -51,21 +52,40 @@ namespace AD_SensorModbusTCP_NetFramework
                     if(Encryption.GetMD5Hash(tbxPwd.Text)==new SQLSelect().Select_Pwd(1))
                     {
                         DialogResult = DialogResult.OK;
+                        DataClass.userLevel = 1;
                         this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("密码错误！");
+                        tbxPwd.SelectAll();
                     }
                     break;
                 case 1:
                     if (Encryption.GetMD5Hash(tbxPwd.Text) == new SQLSelect().Select_Pwd(2))
                     {
                         DialogResult = DialogResult.OK;
+                        DataClass.userLevel = 2;
                         this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("密码错误！");
+                        tbxPwd.SelectAll();
+
                     }
                     break;
                 case 2:
                     if (Encryption.GetMD5Hash(tbxPwd.Text) == new SQLSelect().Select_Pwd(3))
                     {
                         DialogResult = DialogResult.OK;
+                        DataClass.userLevel = 3;
                         this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("密码错误！");
+                        tbxPwd.SelectAll();
                     }
                     break;
             }
