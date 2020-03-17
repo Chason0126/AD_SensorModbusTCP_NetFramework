@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AD_SensorModbusTCP_NetFramework
+namespace AD_Sensor_SM9001A
 {
     class Encryption
     {

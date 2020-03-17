@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AD_Sensor_SM9001A", "AD_Sensor_SM9001A.csproj", "{AD67B9DC-6A6F-4170-86F2-C1C5BBD60662}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SM9001A_SetUp", "..\SM9001A_SetUp\SM9001A_SetUp.vdproj", "{84754730-47EA-46D1-B8B0-9E4B4C9D1189}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD67B9DC-6A6F-4170-86F2-C1C5BBD60662}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD67B9DC-6A6F-4170-86F2-C1C5BBD60662}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD67B9DC-6A6F-4170-86F2-C1C5BBD60662}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD67B9DC-6A6F-4170-86F2-C1C5BBD60662}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84754730-47EA-46D1-B8B0-9E4B4C9D1189}.Debug|Any CPU.ActiveCfg = Debug
+		{84754730-47EA-46D1-B8B0-9E4B4C9D1189}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {73BD837B-005D-44D3-B594-868220792311}
+	EndGlobalSection
+EndGlobal

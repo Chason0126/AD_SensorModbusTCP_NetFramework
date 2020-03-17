@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AD67B9DC-6A6F-4170-86F2-C1C5BBD60662}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AD_Sensor_SM9001A</RootNamespace>
+    <AssemblyName>AD_Sensor_SM9001A</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Authorize">
+      <HintPath>..\..\..\SM2003\SoftWare\Authorize\bin\Release\netstandard2.0\Authorize.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="CRC16">
+      <HintPath>C:\Users\Administrator\Desktop\Tool_Dll\CRC16\bin\Debug\netstandard2.0\CRC16.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>packages\MySql.Data.8.0.18\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommLayer\Client\IModBusClient.cs" />
+    <Compile Include="CommLayer\Client\ModBusClient.cs" />
+    <Compile Include="CommLayer\Client\WorkClient.cs" />
+    <Compile Include="CommLayer\Comm\Comm.cs" />
+    <Compile Include="CommLayer\Comm\CommFactory.cs" />
+    <Compile Include="CommLayer\Comm\SPort.cs" />
+    <Compile Include="CommLayer\Comm\SSocket.cs" />
+    <Compile Include="CommLayer\ModBus\ModBus_RTU.cs" />
+    <Compile Include="CommLayer\ModBus\ModBus_TCP.cs" />
+    <Compile Include="Config\ConfigClass.cs" />
+    <Compile Include="DataLayer\DataInsert.cs" />
+    <Compile Include="DataLayer\Data.cs" />
+    <Compile Include="FrmControls\FrmAuthorize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmControls\FrmAuthorize.Designer.cs">
+      <DependentUpon>FrmAuthorize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmControls\FrmCheckPwd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmControls\FrmCheckPwd.designer.cs">
+      <DependentUpon>FrmCheckPwd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmControls\FrmProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmControls\FrmProgress.Designer.cs">
+      <DependentUpon>FrmProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Log.cs" />
+    <Compile Include="UCAlarmData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCAlarmData.Designer.cs">
+      <DependentUpon>UCAlarmData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCControls\UCHome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCControls\UCHome.designer.cs">
+      <DependentUpon>UCHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\SQLProcedure.cs" />
+    <Compile Include="SQL\SQLUpdate.cs" />
+    <Compile Include="SQL\SQLInit\Create_Init.cs" />
+    <Compile Include="SQL\SQLInit\Create_Table.cs" />
+    <Compile Include="DataLayer\Structs.cs" />
+    <Compile Include="Encryption.cs" />
+    <Compile Include="FrmControls\FrmInitDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmControls\FrmInitDB.Designer.cs">
+      <DependentUpon>FrmInitDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmControls\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmControls\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQL\SQLInit\SQL.cs" />
+    <Compile Include="SQL\SQLInsert.cs" />
+    <Compile Include="SQL\SQLSelect.cs" />
+    <Compile Include="SQL\SQLInit\SQLCreate.cs" />
+    <Compile Include="SQL\SQLInit\SQL_MySql.cs" />
+    <Compile Include="SQL\SQLInit\SQL_MySql_Database.cs" />
+    <Compile Include="StaticMethod.cs" />
+    <Compile Include="UCControls\SysConfig\UC_CommConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCControls\SysConfig\UC_CommConfig.Designer.cs">
+      <DependentUpon>UC_CommConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCControls\UCAraeLbl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCControls\UCAraeLbl.Designer.cs">
+      <DependentUpon>UCAraeLbl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCControls\SysConfig\UCSysConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCControls\SysConfig\UCSysConfig.Designer.cs">
+      <DependentUpon>UCSysConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCControls\ProjConfig\UCProjConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCControls\ProjConfig\UCProjConfig.Designer.cs">
+      <DependentUpon>UCProjConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCControls\UCPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCControls\UCPage.Designer.cs">
+      <DependentUpon>UCPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCControls\UCSensorPic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCControls\UCSensorPic.Designer.cs">
+      <DependentUpon>UCSensorPic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCControls\UCNodePic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCControls\UCNodePic.Designer.cs">
+      <DependentUpon>UCNodePic.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmControls\FrmAuthorize.resx">
+      <DependentUpon>FrmAuthorize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmControls\FrmCheckPwd.resx">
+      <DependentUpon>FrmCheckPwd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmControls\FrmProgress.resx">
+      <DependentUpon>FrmProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmControls\FrmInitDB.resx">
+      <DependentUpon>FrmInitDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmControls\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCAlarmData.resx">
+      <DependentUpon>UCAlarmData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCControls\UCHome.resx">
+      <DependentUpon>UCHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UCControls\SysConfig\UC_CommConfig.resx">
+      <DependentUpon>UC_CommConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCControls\UCAraeLbl.resx">
+      <DependentUpon>UCAraeLbl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCControls\SysConfig\UCSysConfig.resx">
+      <DependentUpon>UCSysConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCControls\ProjConfig\UCProjConfig.resx">
+      <DependentUpon>UCProjConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCControls\UCPage.resx">
+      <DependentUpon>UCPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCControls\UCSensorPic.resx">
+      <DependentUpon>UCSensorPic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCControls\UCNodePic.resx">
+      <DependentUpon>UCNodePic.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Log4Net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Config\App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backGround4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\userAdmin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\userNormal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\userOperator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\authorize.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\db.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\switchUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_fault.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_fire.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nullPic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SM9003jpg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LedNormal.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

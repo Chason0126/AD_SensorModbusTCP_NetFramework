@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AD_SensorModbusTCP_NetFramework
+namespace AD_Sensor_SM9001A
 {
     class SQLInsert: SQL_MySql_Database
     {

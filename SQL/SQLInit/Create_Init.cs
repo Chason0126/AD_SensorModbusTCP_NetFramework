@@ -1,11 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace AD_SensorModbusTCP_NetFramework
+namespace AD_Sensor_SM9001A
 {
     public class Create_Init : SQL_MySql
     {
@@ -150,7 +146,7 @@ namespace AD_SensorModbusTCP_NetFramework
             try
             {
                 //Open();
-                string sql = "grant select,insert,update,delete,create on SM9001A.* to '" + userName + "'";
+                string sql = "grant select,insert,update,delete,create,execute on SM9001A.* to '" + userName + "'";
                 cmd = new MySqlCommand(sql, conn);
                 int count = cmd.ExecuteNonQuery();
                 result = count >= 0 ? true : false;

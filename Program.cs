@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Authorize;
 
-namespace AD_SensorModbusTCP_NetFramework
+namespace AD_Sensor_SM9001A
 {
     static class Program
     {
